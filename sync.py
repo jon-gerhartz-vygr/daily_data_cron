@@ -31,7 +31,7 @@ def begin():
     updates_count = len(updates_df.index)
     print(f'Found {updates_count} records to sync')
     updates = updates_df.to_dict(orient='records')
-    return updates
+    return updates, updates_count
 
 
 def run_sync(updates, n=250):
@@ -104,12 +104,13 @@ def write_sync_log(sync_ts, sync_status):
 
 
 def snowflake_sync():
-    updates_df = begin()
-    sync_status = run_sync(updates_df)
-    sync_ts, update_status = update_bubble_actual()
-    status = f"sync status: {sync_status}, update_status: {update_status}"
+    updates_df, updates_count = begin()
+    if updates_count > 0:
+        sync_status = run_sync(updates_df)
+        sync_ts, update_status = update_bubble_actual()
+        status = f"sync status: {sync_status}, update_status: {update_status}"
+        write_sync_log(sync_ts, status)
+    else:
+        status = "No records found to sync, ending job now."
     print(status)
-    write_sync_log(sync_ts, status)
-
-
-snowflake_sync()
+    return status
