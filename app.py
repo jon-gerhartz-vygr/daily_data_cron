@@ -1,7 +1,7 @@
 from dotenv import load_dotenv
 from flask import Flask, request, redirect, jsonify, url_for, make_response
+from jobs import run_jobs
 import os
-from sync import snowflake_sync
 import threading
 from utils import get_public_ip
 
@@ -25,7 +25,7 @@ def run_bubble_sync():
         status_code = 404
         resp['message'] = 'Unauthorized'
     else:
-        thread = threading.Thread(target=snowflake_sync)
+        thread = threading.Thread(target=run_jobs)
         thread.start()
         status_code = 200
         resp['message'] = 'Bubble sync started'
