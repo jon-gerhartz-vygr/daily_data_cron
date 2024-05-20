@@ -82,6 +82,24 @@ def update_bubble_thing(obj_type, obj_id, payload, key):
         return str(e)
 
 
+def update_bubble_email(user_id, email, key):
+    headers = {'authorization': f'bearer {key}'}
+    base_url = 'https://www.investvoyager.com/api/1.1/wf/updateEmail'
+
+    payload = {
+        'user_id': user_id,
+        'newEmail': email
+
+    }
+
+    try:
+        resp = requests.post(base_url, headers=headers, json=payload)
+        return resp
+    except Exception as e:
+        print(e)
+        return str(e)
+
+
 def get_public_ip():
     try:
         response = requests.get('https://api.ipify.org')

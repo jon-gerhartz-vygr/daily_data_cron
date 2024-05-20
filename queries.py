@@ -33,16 +33,9 @@ VALUES ('{sync_ts}', 'streamlit', '{sync_status}', '{data_type}');
 
 # bubble user sync
 q_get_bubble_user_updates = """
-SELECT 
-    "unique id"
-    , "address1"
-    , "address2"
-    , "city"
-    , "fullName"
-    , "state"
-    , "zip"
-    , "vygrUserId"
+SELECT *
 FROM LIQUIDATION_TRUST.SRC.MODIFY_BUBBLE_USERS
+LIMIT 1;
 """
 
 q_update_bubble_users_actual = """
