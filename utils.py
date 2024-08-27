@@ -109,3 +109,18 @@ def get_public_ip():
             return "Error: Unable to fetch IP address"
     except Exception as e:
         return f"Exception occurred: {e}"
+
+
+def update_bubble_check(payload, key):
+    headers = {'authorization': f'bearer {key}'}
+
+    base_url = 'https://www.investvoyager.com/api/1.1/wf/updateEmail'
+
+    try:
+        payload.pop('amount')
+        payload.pop('distribution')
+        resp = requests.post(base_url, headers=headers, json=payload)
+        return resp
+    except Exception as e:
+        print(e)
+        return str(e)

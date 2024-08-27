@@ -2,7 +2,7 @@ from datetime import datetime
 from dotenv import load_dotenv
 import os
 import pandas as pd
-from utils import fetch_pandas, update_bubble_thing, update_bubble_email, execute_query, load_data
+from utils import fetch_pandas, update_bubble_thing, update_bubble_email, execute_query, load_data, update_bubble_check
 from queries import *
 
 
@@ -50,7 +50,9 @@ def run_sync(updates, obj, tbl_name, n=250):
                 email_resp = update_bubble_email(user_id, email, BUBBLE_KEY)
             if obj == 'check':
                 i['lastUpdated'] = str(i['lastUpdated'])
-            resp = update_bubble_thing(obj, obj_id, i, BUBBLE_KEY)
+                resp = update_bubble_check(i, BUBBLE_KEY)
+            else:
+                resp = update_bubble_thing(obj, obj_id, i, BUBBLE_KEY)
 
             i['unique id'] = obj_id
 
