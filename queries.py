@@ -1,7 +1,8 @@
 # bubble check sync
 q_get_bubble_check_updates = """
 SELECT *
-FROM LIQUIDATION_TRUST.SRC.MODIFY_BUBBLE_CHECKS;
+FROM LIQUIDATION_TRUST.SRC.MODIFY_BUBBLE_CHECKS
+LIMIT 10;
 """
 
 q_update_bubble_actual_check = """

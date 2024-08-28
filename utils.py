@@ -113,7 +113,7 @@ def get_public_ip():
 def update_bubble_check(payload, key):
     headers = {'authorization': f'bearer {key}'}
 
-    base_url = 'https://www.investvoyager.com/api/1.1/wf/updateEmail'
+    base_url = 'https://www.investvoyager.com/api/1.1/wf/update_check_status'
 
     try:
         payload.pop('amount')
