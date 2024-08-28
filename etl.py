@@ -1,7 +1,6 @@
 from datetime import datetime
 from dotenv import load_dotenv
 import os
-import pandas as pd
 from utils import fetch_pandas, update_bubble_thing, update_bubble_email, execute_query, load_data, update_bubble_check
 from queries import *
 
