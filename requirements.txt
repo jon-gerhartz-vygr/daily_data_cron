@@ -4,6 +4,6 @@ gunicorn
 numpy>=1.24.0
 python-dotenv==1.0.1
 Requests==2.31.0
-snowflake_connector_python==3.7.1
+snowflake_connector_python==3.12.1
 snowflake_sqlalchemy==1.5.1
 snowflake-connector-python[pandas]
