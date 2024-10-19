@@ -1,7 +1,7 @@
 cryptography==42.0.5
 Flask==2.3.2
 gunicorn
-numpy>=1.24.0
+numpy==1.25.0
 pandas==2.0.3
 python-dotenv==1.0.1
 Requests==2.31.0
