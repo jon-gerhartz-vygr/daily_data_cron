@@ -2,9 +2,9 @@ cryptography==42.0.5
 Flask==2.3.2
 gunicorn
 numpy>=1.24.0
-pandas==2.1.0
+pandas==2.0.3
 python-dotenv==1.0.1
 Requests==2.31.0
-snowflake_connector_python==3.12.1
+snowflake_connector_python==3.7.1
 snowflake_sqlalchemy==1.5.1
-snowflake-connector-python[pandas]
+snowflake-connector-python[pandas]==3.7.1
